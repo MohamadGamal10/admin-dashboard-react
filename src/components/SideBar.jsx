@@ -23,6 +23,7 @@ import {
   TimelineOutlined,
 } from "@mui/icons-material";
 import { Avatar, Typography } from "@mui/material";
+import { useNavigate } from "react-router";
 
 const drawerWidth = 240;
 
@@ -59,6 +60,7 @@ const Array3 = [
 ];
 
 const SideBar = ({ open, handleDrawerClose }) => {
+  const navigate = useNavigate();
   const theme = useTheme();
 
   const openedMixin = (theme) => ({
@@ -143,7 +145,6 @@ const SideBar = ({ open, handleDrawerClose }) => {
       <Typography
         align="center"
         sx={{ fontSize: open ? 17 : 0, transition: "0.25s" }}
-        variant="body1"
       >
         Mohamed Gamal
       </Typography>
@@ -153,8 +154,8 @@ const SideBar = ({ open, handleDrawerClose }) => {
           transition: "0.25s",
           color: theme.palette.info.main,
         }}
+        mb="5px"
         align="center"
-        variant="body1"
       >
         Admin
       </Typography>
@@ -163,6 +164,7 @@ const SideBar = ({ open, handleDrawerClose }) => {
         {Array1.map((item, index) => (
           <ListItem key={index} disablePadding sx={{ display: "block" }}>
             <ListItemButton
+            onClick={() => navigate(item.path)}
               sx={[
                 {
                   minHeight: 48,
@@ -215,6 +217,7 @@ const SideBar = ({ open, handleDrawerClose }) => {
         {Array2.map((item, index) => (
           <ListItem key={index} disablePadding sx={{ display: "block" }}>
             <ListItemButton
+             onClick={() => navigate(item.path)}
               sx={[
                 {
                   minHeight: 48,
@@ -267,6 +270,7 @@ const SideBar = ({ open, handleDrawerClose }) => {
         {Array3.map((item, index) => (
           <ListItem key={index} disablePadding sx={{ display: "block" }}>
             <ListItemButton
+             onClick={() => navigate(item.path)}
               sx={[
                 {
                   minHeight: 48,
