@@ -23,7 +23,8 @@ import {
   TimelineOutlined,
 } from "@mui/icons-material";
 import { Avatar, Typography } from "@mui/material";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
+import { grey } from "@mui/material/colors";
 
 const drawerWidth = 240;
 
@@ -61,6 +62,7 @@ const Array3 = [
 
 const SideBar = ({ open, handleDrawerClose }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const theme = useTheme();
 
   const openedMixin = (theme) => ({
@@ -164,11 +166,18 @@ const SideBar = ({ open, handleDrawerClose }) => {
         {Array1.map((item, index) => (
           <ListItem key={index} disablePadding sx={{ display: "block" }}>
             <ListItemButton
-            onClick={() => navigate(item.path)}
+              onClick={() => navigate(item.path)}
               sx={[
                 {
                   minHeight: 48,
                   px: 2.5,
+                  justifyContent: open ? "initial" : "center",
+                  bgcolor:
+                    location.pathname === item.path
+                      ? theme.palette.mode === "dark"
+                        ? grey[800]
+                        : grey[300]
+                      : null,
                 },
                 open
                   ? {
@@ -217,11 +226,18 @@ const SideBar = ({ open, handleDrawerClose }) => {
         {Array2.map((item, index) => (
           <ListItem key={index} disablePadding sx={{ display: "block" }}>
             <ListItemButton
-             onClick={() => navigate(item.path)}
+              onClick={() => navigate(item.path)}
               sx={[
                 {
                   minHeight: 48,
                   px: 2.5,
+                  justifyContent: open ? "initial" : "center",
+                  bgcolor:
+                    location.pathname === item.path
+                      ? theme.palette.mode === "dark"
+                        ? grey[800]
+                        : grey[300]
+                      : null,
                 },
                 open
                   ? {
@@ -270,11 +286,18 @@ const SideBar = ({ open, handleDrawerClose }) => {
         {Array3.map((item, index) => (
           <ListItem key={index} disablePadding sx={{ display: "block" }}>
             <ListItemButton
-             onClick={() => navigate(item.path)}
+              onClick={() => navigate(item.path)}
               sx={[
                 {
                   minHeight: 48,
                   px: 2.5,
+                  justifyContent: open ? "initial" : "center",
+                  bgcolor:
+                    location.pathname === item.path
+                      ? theme.palette.mode === "dark"
+                        ? grey[800]
+                        : grey[300]
+                      : null,
                 },
                 open
                   ? {
